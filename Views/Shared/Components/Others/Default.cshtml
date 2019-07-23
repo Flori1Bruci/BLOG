@@ -1,0 +1,23 @@
+@model IEnumerable<ArticleHomepageVM>
+
+
+@foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-12 row" style="padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px;margin:0px;">
+            <a style="display:table;" asp-controller="AdmArticle" asp-action="Details" asp-route-id="@item.Id" asp-route-serp="@item.Serp">
+                <div class="row">
+                    <div class="col" style="padding-right:0px;">
+                        <img src="~/documents/@item.ImageName" alt="Image placeholder" class="mr-4" style="max-height:115px;width:170px; float:left;">
+                    </div>
+                    <div class="col" style="padding-left:0px;">
+                        <h4 style="font-size:17px;">@item.Title</h4>
+                        <div class="col-12">
+                            <div class="post-meta row" style="text-align:center;">
+                                <span class="mr-2" style="color:gray;font-size:14px;"><span class="ion-ios-calendar-outline"> @item.DatePublished.Value.ToShortDateString()</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }

@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center;">Miresevini ne Kliko.com.al.</h1>
+
+<h1 style="text-align:center;">Nese jeni pjese e stafit vazhdoni per tu kycur ose vazhdoni per te faqja.</h1>
+
+<p class="clearfix">&nbsp;</p>
+
+<div class="col-md-6 col-md-offset-3 text-center">
+    <div class="row form-group">
+        <div class="col-md-5"  style="border:1px solid; border-color:black; background-color:black;margin-right:6px; margin-bottom:10px;">
+            <a asp-controller="Homepage" asp-action="Index"><h4>Vazhdoni per te HOMEPAGE</h4></a>
+        </div>
+        <div class="col-md-5"  style="border:1px solid; border-color:black; background-color:black;margin-left:6px;">
+            <a asp-area="Identity" asp-page="/Account/Login"><h3>Vazhdoni per log in</h3></a>
+        </div>
+    </div>
+</div>

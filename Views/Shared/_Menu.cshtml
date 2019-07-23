@@ -1,0 +1,54 @@
+
+<div class="collapse navbar-collapse" id="navbarMenu">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+            <a class="nav-link active fontstyle" asp-controller="HomePage" asp-action="Index" asp-route-tag="">
+                <span class="borderMenu">Kryefaqja</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active fontstyle" id="dropdown04">
+                <span class="borderMenu-red" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Argetim
+                </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" asp-controller="HomePage" asp-action="Index" asp-route-tag="kuriozitete">Kuriozitete</a>
+                <a class="dropdown-item" asp-controller="HomePage" asp-action="Index" asp-route-tag="showbizz">ShowBizz</a>
+                <a class="dropdown-item" asp-controller="HomePage" asp-action="Index" asp-route-tag="kuzhine">Kuzhine</a>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active fontstyle" asp-controller="HomePage" asp-action="Index" asp-route-tag="kulture">
+                <span class="borderMenu-pink">Kulture</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active  fontstyle" asp-controller="HomePage" asp-action="Index" asp-route-tag="teknologji">
+                <span class="borderMenu-yellow">Teknologji</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link active fontstyle" asp-controller="HomePage" asp-action="Index" asp-route-tag="shendeti">
+                <span class="borderMenu-green">Shendeti</span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active fontstyle" id="dropdown04">
+                <span class="borderMenu-red" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Histori
+                </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" asp-controller="HomePage" asp-action="Index" asp-route-tag="biografi">Biografi</a>
+                <a class="dropdown-item" asp-controller="HomePage" asp-action="Index" asp-route-tag="histori">Ngjarje Historike</a>
+                <a class="dropdown-item" asp-controller="HomePage" asp-action="Index" asp-route-tag="konspiracion">Teori Konspirative</a>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+

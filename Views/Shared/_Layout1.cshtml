@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - Blog</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700|Inconsolata:400,700" rel="stylesheet">
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/bootstrap.css">
+        <link rel="stylesheet" href="~/css/animate.css">
+        <link rel="stylesheet" href="~/css/slick.css">
+        <link rel="stylesheet" href="~/css/slick-theme.css" />
+        <link rel="stylesheet" href="~/fonts/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="~/fonts/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+        <!-- Theme Style -->
+        <link rel="stylesheet" href="~/css/style.css">
+
+        <link rel="stylesheet" href="~/lib/summernote/summernote.css">
+        <link href="~/css/template-customizations.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/style.min.css" />
+    </environment>
+    <style>
+        #myBtn {
+            display: none;
+            position: fixed;
+            height: 50px;
+            bottom: 0px;
+            right: 10px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #ff084e;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 2px;
+        }
+
+        hr.style-eight {
+            height: 10px;
+            border: 1px;
+            box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);
+            -webkit-border-radius: 5px;
+            border-radius: 5px, 5px,5px, 5px;
+        }
+    </style>
+    @RenderSection("css", required: false)
+</head>
+<body>
+    <div class="wrap">
+        <header role="banner">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9 social">
+                            <a href="#"><span class="fa fa-twitter"></span></a>
+                            <a href="#"><span class="fa fa-facebook"></span></a>
+                            <a href="#"><span class="fa fa-instagram"></span></a>
+                            <a href="#"><span class="fa fa-youtube-play"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container logo-wrap">
+                <div class="row pt-5">
+                    <div class="col-12 text-center">
+                        <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu" style="padding:10px;"><span class="burger-lines"></span></a>
+                        <h1 class="site-logo"><a asp-controller="HomePage" asp-action="Index"><img src="~/images/logo.png" /></a></h1>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-expand-md  navbar-light bg-light">
+                <div class="container">
+                    <partial name="_Menu" />
+                </div>
+            </nav>
+        </header>
+
+        <section class="site-section py-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        @*<h2 class="mb-4">Latest Posts</h2>*@
+                        <p class="clearfix">&nbsp;</p>
+                    </div>
+                </div>
+                <div class="row blog-entries">
+                    @RenderBody()
+                </div>
+            </div>
+        </section>
+
+        @*<h4 style="padding-left:40px;text-transform:uppercase;">Te Tjera</h4>
+        <hr style="color:black;" />
+        <div class="container main-content col-12" style="margin-left:5px; margin-right:10px; padding-left:35px;padding-right:35px;">
+            <div class="row">
+                @await Component.InvokeAsync("Others")
+            </div>
+        </div>*@
+
+        <p class="clearfix">&nbsp;</p>
+        <footer class="site-footer">
+            <div class="container" style="margin-left:10px;">
+                <div class="row mb-5">
+                    <div class="col-md-10 ml-auto" style="margin-left:10px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3>Te Fundit </h3>
+                                <div class="post-entry-sidebar">
+                                    <ul>
+                                        @await Component.InvokeAsync("LatestPost")
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+
+                            <div class="col-md-4">
+                                <div class="mb-5">
+                                    <h3>KATEGORI </h3>
+                                    <ul class="list-unstyled">
+                                        <li><a asp-controller="HomePage" asp-action="Index" asp-route-tag="kuriozitete">Kuriozitete</a></li>
+                                        <li> <a asp-controller="HomePage" asp-action="Index" asp-route-tag="showbizz">ShowBizz</a></li>
+                                        <li><a asp-controller="HomePage" asp-action="Index" asp-route-tag="kuzhine">Kuzhine</a></li>
+                                        <li><a asp-controller="HomePage" asp-action="Index" asp-route-tag="kulture">Kulture</a></li>
+                                        <li><a asp-controller="HomePage" asp-action="Index" asp-route-tag="shendeti">Shendeti</a></li>
+                                        <li><a asp-controller="HomePage" asp-action="Index" asp-route-tag="biografi">Biografi</a></li>
+                                        <li><a asp-controller="HomePage" asp-action="Index" asp-route-tag="teknologji">Teknologji</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-5">
+                                    <h3>Social</h3>
+                                    <ul class="list-unstyled footer-social">
+                                        <li><a href="#"><span class="fa fa-facebook"></span> Facebook</a></li>
+                                        <li><a href="#"><span class="fa fa-instagram"></span> Instagram</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="small">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            @*<script>document.write(new Date().getFullYear());</script>*@ All Rights Reserved | This template is made with <i class="fa fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+                <div onclick="topFunction()" id="myBtn" title="Go to top" style="padding-top:10px;">
+                    <i class="fa fa-chevron-up center-block"></i>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    @*<script src="~/js/jquery-migrate-3.0.0.js"></script>*@
+    @*<script src="~/js/popper.min.js"></script>*@
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    @*<script src="~/js/jquery.waypoints.min.js"></script>*@
+    @*<script src="~/js/jquery.stellar.min.js"></script>*@
+    <script src="~/lib/summernote/summernote.js"></script>
+    @*<script src="~/js/main.js"></script>*@
+
+    @*E minimizume nbundle*@    @*<script src="~/js/site.min.js"></script>*@
+    <script src="~/js/template-customizations.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

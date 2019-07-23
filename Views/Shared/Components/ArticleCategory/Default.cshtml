@@ -1,0 +1,48 @@
+﻿@model ArticleCategoryViewModel
+
+
+
+<div class="container-fluid">
+    <div class="row" style="display:flex;margin-left:20px;">
+        <div class="article-category-@Model.TagId" style="border:solid 2px;border-radius:25px 0px 25px 0px;text-align:center;flex-grow:1;max-width:200px;">
+            <span style="font-size:20px;font-weight:bold;text-transform:uppercase;">@Model.DisplayTitle</span>
+        </div>
+        <div  class="article-category-@Model.TagId"  style="flex-grow:2;padding-left:10px;padding-top:3px; margin-right:20px;">
+            <hr style=" border-top:solid 3px;"/>
+        </div>
+    </div>
+</div>
+<div class="container main-content col-12" style="margin-left:5px; margin-right:10px; padding-left:35px;padding-right:35px;">
+    <div class="row">
+        @foreach (var item in Model.Articles)
+        {
+            <div class="col-md-4 col-sm-12 row" style="padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:10px;margin:0px;">
+                <a style="display:table;" asp-controller="AdmArticle" asp-action="Details" asp-route-id="@item.Id" asp-route-serp="@item.Serp">
+                    <div class="row">
+                        <div class="col" style="padding-right:0px;">
+                            <img src="~/documents/@item.ImageName" alt="Image placeholder" class="mr-4" style="max-height:115px;width:170px; float:left;">
+                        </div>
+                        <div class="col" style="padding-left:0px;">
+                            <h4 style="font-size:17px;">@item.Title</h4>
+                            <div class="col-12">
+                                <div class="post-meta row" style="text-align:center;">
+                                    <span class="mr-2" style="color:gray;font-size:14px;"><span class="ion-ios-calendar-outline"> @item.PublishedDate.Value.ToShortDateString()</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    <div class="container-fluid">
+        <div class="row"  style="display:flex;">
+            <div class="article-category-@Model.TagId" style="flex-grow:2; padding-right:10px; padding-top:3px;">
+                <hr style="border-top:solid 3px;" />
+            </div>
+            <div class="article-category-@Model.TagId" style="border:solid 2px; text-align:center; flex-grow:1; max-width:200px;">
+                <a href="~/kategoria/shendeti/"><span class="article-category-@Model.TagId" style="font-size:20px;font-weight:bold;">Lexo Me Shume <span class="fa fa-chevron-right"></span></span></a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+@model List<ArticleHomepageVM>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 col-sm-12 row" style="padding-left:40px; padding-right:40px; padding-top:10px; padding-bottom:10px;width:100%;">
+        <a asp-controller="AdmArticle" asp-action="Details" asp-route-id="@item.Id" asp-route-serp="@item.Serp" class="a-block sm d-flex align-items-center height-md" style="background-image: url('/documents/@item.ImageName');height:260px;width:100%; ">
+            <div class="text">
+                <div class="post-meta" @*style="position:absolute ; bottom:50px; padding-bottom:40px;" *@>
+                    <div class="row">
+                        <span class="category">@item.Tag.FirstOrDefault()</span>
+                        <span class="category">@item.Tag.LastOrDefault()</span>
+                    </div>
+                    <span class="mr-2">@item.DatePublished.Value.ToShortDateString()</span> &bullet;
+                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                </div>
+                <h6 style="color:whitesmoke;">@item.Title</h6>
+            </div>
+        </a>
+    </div>
+}
+

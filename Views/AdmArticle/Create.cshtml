@@ -1,0 +1,74 @@
+﻿@model Blog.Models.ArticleCreateVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+    <link href="~/lib/jquery-chosen/chosen.css" rel="stylesheet" />
+    <link href="~/lib/summernote/summernote.css" rel="stylesheet" />
+}
+<p class="clearfix">&nbsp;</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <form method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="form-group">
+                        <input type="file" asp-for="Photo" accept="image/png , image/jpeg , image/png" multiple />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="Title" class="control-label">Title</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="Meta" class="control-label">Meta</label>
+                    <textarea rows="5" asp-for="Meta" class="form-control"></textarea>
+                    <span asp-validation-for="Meta" class="text-danger"></span>
+                </div>
+                <div class="col-md-12">
+                    <label asp-for="Body" class="control-label">Body Content</label>
+                    <textarea rows="15" asp-for="Body" hidden id="Body" class="form-control summernote"></textarea>
+                    <span asp-validation-for="Body" class="text-danger"></span>
+                </div>
+                <div class="col-md-12">
+                    <div class="dropdown">
+                        <label asp-for="Status" class="control-label">Status</label>
+                        <select asp-for="Status" asp-items="@ViewBag.Status" class="form-control">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="dropdown">
+                        <label asp-for="ArticleTag" class="control-label">Tags</label>
+                        <select asp-for="ArticleTag" asp-items="@ViewBag.Taget" class="form-control">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="ArticleTag" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <p class="clearfix">&nbsp;&nbsp;</p>
+                <div class="text-center">
+                    <button value="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/lib/jquery-chosen/chosen.jquery.min.js"></script>
+    <script>
+        $("#ArticleTag").chosen();
+    </script>
+    <script src="~/lib/summernote/summernote.js"></script>
+    <script>
+        $('#Body').summernote();
+    </script>
+}

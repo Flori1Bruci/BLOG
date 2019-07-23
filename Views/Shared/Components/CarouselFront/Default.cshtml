@@ -1,0 +1,24 @@
+@model IEnumerable<ArticleHomepageVM>
+
+
+@foreach (var item in Model.TakeLast(3))
+{
+    <div>
+        <a asp-controller="AdmArticle" asp-action="Details" asp-route-id="@item.Id" asp-route-serp="@item.Serp" class="a-block d-flex align-items-center height-lg" style="background-image:url('/documents/@item.ImageName');">
+            <div class="text half-to-full">
+                @foreach (var items in item.Tag)
+                {
+                    <span class="category mb-5">@items.ToString().ToUpper()</span>
+                }
+                <div class="post-meta">
+                    <span class="author mr-2"><img src="~/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;
+                    <span class="mr-2">@item.DatePublished.Value.ToShortDateString()</span> &bullet;
+                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                </div>
+                <h3>@item.Title</h3>
+                <p>@Html.Raw(item.Body.Substring(0, 100))</p>
+            </div>
+        </a>
+    </div>
+
+}

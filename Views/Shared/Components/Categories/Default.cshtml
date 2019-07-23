@@ -1,0 +1,22 @@
+@model List<CategoryComponentVm>
+
+
+<h3 class="heading" style="text-transform:uppercase;">Kategorite</h3>
+
+<ul class="categories categories-init" id="myList">
+    @foreach (var item in Model)
+    {
+        <li class="compact">
+            <a asp-controller="HomePage" asp-action="Index" asp-route-tag="@item.Name" style="color:firebrick;">
+                @item.Name
+                <span>(@item.Count)</span>
+            </a>
+        </li>
+    }
+</ul>
+<div class="text-center" style="padding:5px;">
+    <a id="loadMore" style="color:firebrick; cursor:pointer; font-size:larger;">
+        <i class="fa fa-hand-o-down"></i>
+    </a>
+</div>
+
